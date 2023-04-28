@@ -175,7 +175,8 @@
 <h1 id="live2d"><a href="#live2d" class="headerlink" title="live2d"></a>live2d</h1><p><code>hexo g</code> 生成网页后，<del>在public&#x2F;index.html中</del>添加对应代码</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://fastly.jsdelivr.net/gh/stevenjoezhang/live2d-widget@latest/autoload.js&quot;&gt;&lt;/script&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>但是这样加载出来的看板娘只能在index.html中存在，进入新的页面后无法加载，因为url更改了，因此需要更为深层的结构融合。<br><code>themes\keep\layout\_partial\head.ejs</code>这个路径是theme模板生成html.head 的地方,实践证明可行，但是加载速度很慢，还得看看文档。<br>暂时到这里吧。</p>
+<p>但是这样加载出来的看板娘只能在index.html中存在，进入新的页面后无法加载，因为url更改了，因此需要更为深层的结构融合。</p>
+<p><code>themes\keep\layout\_partial\head.ejs</code>这个路径是theme模板生成html.head 的地方, 实践证明可行，但是加载速度很慢，还得看看文档。<br>暂时到这里吧。</p>
 
             
         </div>

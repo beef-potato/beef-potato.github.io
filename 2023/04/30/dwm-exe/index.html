@@ -10,7 +10,7 @@
     
     <title>
         
-            卸载软件推荐_BCuninstaller |
+            dwm.exe |
         
         beef-potato blog
     </title>
@@ -155,7 +155,7 @@
         <div class="article-content-container">
 
             <div class="article-title">
-                <span class="title-hover-animation">卸载软件推荐_BCuninstaller</span>
+                <span class="title-hover-animation">dwm.exe</span>
             </div>
 
             
@@ -177,13 +177,13 @@
         
             <i class="fa-regular fa-calendar-plus"></i>&nbsp;
         
-        <span class="pc">2023-04-28 19:09:55</span>
-        <span class="mobile">2023-04-28 19:09</span>
+        <span class="pc">2023-04-30 14:51:25</span>
+        <span class="mobile">2023-04-30 14:51</span>
     </span>
     
         <span class="article-update-date article-meta-item">
         <i class="fas fa-file-pen"></i>&nbsp;
-        <span class="pc">2023-04-28 20:23:03</span>
+        <span class="pc">2023-05-01 09:45:19</span>
     </span>
     
     
@@ -203,13 +203,34 @@
             <div class="article-content keep-markdown-body">
                 
 
-                <p><a class="link"   target="_blank" rel="noopener" href="https://github.com/Klocman/Bulk-Crap-Uninstaller" >Bulk-Crap-Uninstaller<i class="fas fa-external-link-alt"></i></a>，毫不夸张地说，这是我用过手段最彻底的<br>卸载软件，可以扫描所有安装的软件，而且在卸载后还能扫描注册表，并由用户选择是否备份。</p>
-<p>每次鼠标右键，看到以一个过去已经卸载(不管是运行卸载程序还是用everything找到并删除所有包含关键字的文件夹)的图标命名的打开方式，总让我有种无处发泄的无奈——这些残存的注册表文件对于普通用户来说就是电脑里的垃圾，单纯占用内存和扰乱右键菜单的排布。</p>
-<p>在经历一个下午徒手查找并删除过去残留的haozip文件后，我感到力不从心，windows自带的注册表编辑器批量编辑的速度很慢，而像haozip这样的流氓软件又会在大量的文件夹里添加注册表文件，甚至改名等等，这让删除变得十分困难。</p>
-<p>对于普通用户来说，当他选择了卸载一款软件，很少会希望再次安装，就算是更新，希望退回原版本的情况也不多，卸载基本上类似于永远不再使用，当然不希望有残存的任何文件。但是对于软件的发布者，尤其是依靠软件收获利润的部分，软件的装机量与其收入正相关，其不太可能会让用户可以轻易摆脱自己的产品–通常这类软件被称为“流氓软件”。</p>
-<p>像 Bulk-Crap-Uninstaller 这类的软件，对于处于技术劣势的普通人是非常有用的。</p>
-<p>然而，即使如此也存在一些问题，atom 并未安装到电脑上，因此无法检测到 atom ，也就无法执行卸载。备选方案是通过目录卸载，找到<br><code>atom.exe</code> 所在的根目录，通过路径进行卸载，会删除其注册表，但是实操发现右键菜单里还是有用 atom 打开的选项。</p>
-<p>另外重新安装 cajviewer 并通过BCUninstaller卸载，仍不能清除右键菜单里的图标。可能是安装的程序重新注册了注册表。如果能从 windows 右键菜单里追踪其注册表来源就好了。</p>
+                <h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><p>这几天发现自己的电脑总是达到 55 ℃，但是我一般只是打开几个网页，开着 VSC, powershell 这些简单的窗口程序，甚至没有使用音乐或者动态壁纸程序。</p>
+<p>习惯性地打开任务管理器，发现edge占用了1GB的内存，这个可以理解。但是还有一个平时不起眼的桌面窗口管理器也占用了1GB的内存，这让我怀疑是否是这个进程的问题。</p>
+<p>打开文件位置，指向 <code>&quot;C:\Windows\System32\dwm.exe&quot;</code>, 于是谷歌了这个软件的内存占用，发现很早就有关于dwm.exe内存泄露的讨论，我的电脑是win11, intel core i5, 10th GEN, 同时Intel 官方也给出了对应的解决办法，<a class="link"   target="_blank" rel="noopener" href="https://www.intel.com/content/www/us/en/support/articles/000058381/graphics.html" >安装更新的 Intel UHD Graphics 驱动<i class="fas fa-external-link-alt"></i></a>.</p>
+<p>于是我安装了 2023&#x2F;4&#x2F;30 所能获取的最新版，31.0.101.2114。下载的安装程序将近1GB, 安装之后，我发现自己的显卡是GeForce MX250.</p>
+<p>问题在于，我不知道更新Intel的驱动是否有助于问题的解决，实际上我直接使用任务管理器结束了dwm.exe的进程，它会自行重启，重启后的内存占用在100MB左右。打算测试一下其是否仍然会随着时间不断积累，今天就不关机了，等到明天中午再看看电脑的内存占用情况。</p>
+<p>重新安装了 Nvida的显卡驱动, <a class="link"   target="_blank" rel="noopener" href="https://www.nvidia.cn/download/driverResults.aspx/204510/cn/" >网址<i class="fas fa-external-link-alt"></i></a>, dwm.exe的内存占用仍然很高。</p>
+<p>理想的内存占用量大致在60mb左右。而且GPU的负荷高于CPU的负荷，这说明GPU并没有被充分利用，我的硬件可能出问题了。</p>
+<p>然后自己的CPU, GPU占用实际上非常正常，可能是自己大惊小怪了。</p>
+<hr>
+<h2 id="潜在的解决方法"><a href="#潜在的解决方法" class="headerlink" title="潜在的解决方法"></a>潜在的解决方法</h2><p>利用NVIDA的更改Phix设置，默认的设置改为使用独立显卡 NVIDA Geforce MX250, 初始阶段内存占用为67 MB,  比较理想。</p>
+<h2 id="GPT4"><a href="#GPT4" class="headerlink" title="GPT4"></a>GPT4</h2><p><strong>提问</strong></p>
+<p>我的电脑是windows11, 显卡Nvida Geforce MX250, CPU intel core i5 10th , 由于dwm.exe 占用大量内存，甚至达到1GB，电脑经常在运行少量程序时发生风扇启动，持续发热达到55℃。已知没有病毒感染，请问有什么解决方法可以降低dwm.exe的内存占用，使之达到理想的60MB？</p>
+<p><strong>回答</strong></p>
+<p>dwm.exe（桌面窗口管理器）是Windows 11的一个组件，负责渲染窗口和特效。虽然它是系统的核心部分，但内存占用过高可能导致电脑发热和性能下降。以下是一些建议，可以尝试减少dwm.exe的内存占用：</p>
+<p>关闭视觉效果：</p>
+<p>在开始菜单中搜索“性能”，点击“调整计算机的性能和外观”。</p>
+<p>在“性能选项”窗口中，选择“调整为最佳性能”。这将禁用大部分视觉效果，从而减少dwm.exe的内存占用。</p>
+<p>更改壁纸和主题：</p>
+<p>选择简单的壁纸或纯色背景，以减少dwm.exe的内存占用。避免使用动态壁纸或幻灯片。此外，尝试使用基本的Windows主题，而非第三方主题。</p>
+<p>更新显卡驱动程序：</p>
+<p>访问NVIDIA官方网站，检查是否有适用于GeForce MX250的最新驱动程序。更新显卡驱动程序可能有助于解决dwm.exe的问题。</p>
+<p>检查正在运行的应用程序：</p>
+<p>一些应用程序可能与dwm.exe不兼容，导致内存占用异常。通过任务管理器检查正在运行的应用程序，尝试关闭可能导致问题的应用程序。</p>
+<p>重置dwm.exe进程：</p>
+<p>如果以上方法都没有效果，可以尝试手动结束dwm.exe进程。按下Ctrl+Shift+Esc打开任务管理器，找到dwm.exe进程，右键单击，然后选择“结束任务”。系统将自动重启dwm.exe进程。</p>
+<p>请注意，降低dwm.exe的内存占用可能会影响系统的视觉效果。在尝试这些方法之前，请先备份重要数据，以防万一。</p>
+<h2 id="问题仍然存在"><a href="#问题仍然存在" class="headerlink" title="问题仍然存在"></a>问题仍然存在</h2><p>第二天打开电脑，不到一个小时，dwm.exe 的内存占用就达到了500MB+, 并且仍然不断积累，因此电脑的问题并没有解决。结合以前的经验，不会是壁纸的分辨率的问题，其实是否是显卡驱动的问题也非常可怀疑，因为以前似乎没有发现这种问题。最可能的原因是某个程序对其进行了修改，导致了不断增加的内存占用。<br>而最近我对电脑最大的改动应该是安装了BCUninstaller, 以及右键管理菜单的软件。对注册表的修改是否会导致这一问题？</p>
+<p>重新安装了Intel的驱动程序，位置默认储存在C盘。第二个小时只有90MB, 看起来合理一些。如果在更新所有的显卡驱动之后还没有解决这个问题，之后就看看自己安装的程序有什么会导致这个冲突。再然后就是写脚本检测 dwm.exe 的内存占用，定时执行，占用过高就杀掉进程。</p>
 
             </div>
 
@@ -220,29 +241,14 @@
             
                 <div class="article-nav">
                     
-                        <div class="article-prev">
-                            <a class="prev"
-                               rel="prev"
-                               href="/2023/04/30/dwm-exe/"
-                            >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                                <span class="title flex-center">
-                                <span class="post-nav-title-item">dwm.exe</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                            </a>
-                        </div>
-                    
                     
                         <div class="article-next">
                             <a class="next"
                                rel="next"
-                               href="/2023/04/15/%E7%9C%8B%E6%9D%BF%E5%A8%98/"
+                               href="/2023/04/28/%E5%8D%B8%E8%BD%BD%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90-BCuninstaller/"
                             >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">看板娘</span>
+                                <span class="post-nav-title-item">卸载软件推荐_BCuninstaller</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                                 <span class="right arrow-icon flex-center">
@@ -261,7 +267,7 @@
             <div class="toc-content-container">
                 <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98"><span class="nav-text">问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%BD%9C%E5%9C%A8%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="nav-text">潜在的解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GPT4"><span class="nav-text">GPT4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E4%BB%8D%E7%84%B6%E5%AD%98%E5%9C%A8"><span class="nav-text">问题仍然存在</span></a></li></ol>
     </div>
 </div>
 
